@@ -5,6 +5,8 @@ import pandas as pd
 import xlsxwriter
 
 root = tk.Tk()
+root.title("Konvertor xyz, qtt i lst ekstenzija u Excel")
+root.iconbitmap('C:/Users/andje/Desktop/TabDelimitedTextToExcel/TabDelimitedTextToExcel/launcher.ico')
 root.withdraw()
 
 
