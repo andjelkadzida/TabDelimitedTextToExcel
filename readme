@@ -1,5 +1,0 @@
-In order to create standalone executable file, run the following command from terminal:
-
-`python setup.py py2exe`
-
-.exe file will be located inside **dist** folder.
