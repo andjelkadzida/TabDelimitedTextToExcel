@@ -1,4 +1,5 @@
 import os
+import sys
 import tkinter as tk
 from tkinter import filedialog
 import pandas as pd
@@ -6,7 +7,7 @@ import xlsxwriter
 
 root = tk.Tk()
 root.title("Konvertor xyz, qtt i lst ekstenzija u Excel")
-root.iconbitmap('C:/Users/andje/Desktop/TabDelimitedTextToExcel/TabDelimitedTextToExcel/launcher.ico')
+root.iconbitmap('C:/Users/andje/Desktop/TabDelimitedTextToExcel/launcher.ico')
 root.withdraw()
 
 
@@ -39,7 +40,7 @@ def convertAgain():
     if result == 'yes':
         fileConversion()
     else:
-        quit()
+        sys.exit()
 
 
 fileConversion()
