@@ -7,7 +7,7 @@ import xlsxwriter
 
 root = tk.Tk()
 root.title("Konvertor xyz, qtt i lst ekstenzija u Excel")
-root.iconbitmap('C:/Users/andje/Desktop/TabDelimitedTextToExcel/launcher.ico')
+root.iconbitmap(os.path.join(os.path.dirname(os.getcwd()), 'launcher.ico'))
 root.withdraw()
 
 
