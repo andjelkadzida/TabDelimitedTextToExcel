@@ -8,6 +8,7 @@ import xlsxwriter
 root = tk.Tk()
 root.title("Konvertor xyz, qtt i lst ekstenzija u Excel")
 root.iconbitmap(os.path.join(os.path.dirname(os.getcwd()), 'launcher.ico'))
+root.wm_iconbitmap(os.path.join(os.path.dirname(os.getcwd()), 'launcher.ico'))
 root.withdraw()
 
 
@@ -15,9 +16,9 @@ def fileConversion():
     extensionToChange = filedialog.askopenfilename()
     if extensionToChange.endswith('.qtt') or (extensionToChange.endswith('.xyz') or extensionToChange.endswith('.lst')):
         while not os.path.isfile(extensionToChange):
-            print("Greska: " + extensionToChange + " nije validna putanja do fajla. Pokušajte ponovo...")
+            print("Greška: " + extensionToChange + " nije validna putanja do fajla. Pokušajte ponovo...")
             extensionToChange = filedialog.askopenfilename()
-        df = pd.read_csv(extensionToChange, sep='\t' or '\s*' or '\s+' or 't', engine='python', encoding='utf-8')
+        df = pd.read_csv(extensionToChange, sep='\t' or '\s*' or '\s+' or 't', engine='python', encoding='cp1252')
         df.rename(columns={'Unnamed: 0': ''}, inplace=True)
         df.rename(columns={'Unnamed: 33': ''}, inplace=True)
         if extensionToChange.endswith('.lst') or (extensionToChange.endswith('qtt')):
@@ -34,7 +35,9 @@ def fileConversion():
         convertAgain()
 
     else:
-        res = tk.messagebox.askquestion(title="Greška", message="Izabrali ste fajl koji nije .qtt, .xyz ili .lst.\nDa li želite da pokušate ponovo?", icon='error')
+        res = tk.messagebox.askquestion(title="Greška",
+                                        message="Izabrali ste fajl koji nije .qtt, .xyz ili .lst.\nDa li želite da pokušate ponovo?",
+                                        icon='error')
         if res == 'yes':
             convertAgain()
         else:
